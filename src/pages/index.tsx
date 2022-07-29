@@ -1,7 +1,15 @@
-import type { NextPage } from 'next'
+interface IndexProps {
+  name: string
+}
 
-const lol = 'lol'
+export default function Index({ name }: IndexProps): JSX.Element {
+  return <div className="bg-red-500">Hello {name}</div>
+}
 
-export default function Index(): JSX.Element {
-  return <div className='bg-red-500'>Hello Next.js</div>
+export async function getStaticProps() {
+  return {
+    props: {
+      name: 'Next.js',
+    },
+  }
 }
